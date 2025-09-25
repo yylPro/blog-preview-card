@@ -1,0 +1,172 @@
+
+body {
+    background-color: hsl(47, 88%, 63%); /* 设计图中的黄色背景 */
+    font-family: 'Figtree', sans-serif;
+    display: flex;
+    justify-content: center; /* 主轴（水平）居中 */
+    align-items: center;     /* 交叉轴（垂直）居中 */
+    min-height: 100vh;       /* 确保 body 至少占据视口 100% 的高度 */
+    margin: 0;               /* 移除浏览器默认外边距 */
+}
+
+/*
+  卡片容器样式：
+  - 定义卡片的基本外观：白色背景、圆角、内边距和独特的阴影。
+*/
+.blog-card {
+    background-color: hsl(0, 0%, 100%); /* 白色背景 */
+    width: 320px;                      /* 移动端宽度 */
+    max-width: 384px;                  /* 桌面端最大宽度 */
+    padding: 24px;
+    border-radius: 20px;
+    
+    /* 核心样式：模拟设计图中厚重的黑色边框和柔和的下落阴影 */
+    box-shadow: 8px 8px 0px 0px hsl(0, 0%, 7%), /* 实心黑色阴影，偏移创建边框感 */
+                0px 10px 15px -3px rgba(0,0,0,0.1); /* 柔和下落阴影 */
+    
+    /* 添加平滑过渡效果，用于悬停时的阴影变化 */
+    transition: box-shadow 0.2s ease-in-out; 
+}
+
+/*
+  卡片悬停效果：
+  - 鼠标悬停在卡片上时，阴影会“抬升”，模拟立体效果。
+*/
+.blog-card:hover {
+    box-shadow: 16px 16px 0px 0px hsl(0, 0%, 7%), 
+                0px 20px 25px -5px rgba(0,0,0,0.2);
+}
+
+/*
+  文章插图样式：
+  - 确保图片填充容器并有圆角，底部有间距。
+*/
+.card-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 24px;
+}
+
+/*
+  卡片内容区样式：
+  - 使用 Flexbox 垂直排列所有子元素，并设置间距。
+*/
+.card-content { 
+    display: flex;
+    flex-direction: column; /* 子元素垂直堆叠 */
+    gap: 4px;              
+}
+
+/*
+  “Learning” 标签样式：
+*/
+.tag {
+    background-color: hsl(47, 88%, 63%); /* 黄色背景 */
+    color: hsl(0, 0%, 7%);              /* 黑色文本 */
+    font-weight: 800;                   /* 特粗字重 */
+    padding: 4px 12px;                  /* 内边距 */
+    border-radius: 4px;                 /* 圆角 */
+    width: fit-content;                 /* 让背景只包裹文字内容 */
+}
+
+/*
+  发布日期文本样式：
+  - 灰色文本，较小的字体和常规字重。
+*/
+.publish-data {
+    color: hsl(0, 0%, 50%); /* 灰色 */
+    font-size: 12px;        /* 字体大小 */
+}
+
+/*
+  文章标题样式：
+  - 黑色粗体文本，较大的字体，鼠标悬停时变色。
+*/
+.title { 
+    color: hsl(0, 0%, 7%); /* 黑色 */
+    font-weight: 800;      /* 特粗字重 */
+    font-size: 24px;       /* 标题字体大小 */
+    cursor: pointer;       /* 鼠标悬停时变为小手 */
+    transition: color 0.2s ease-in-out; /* 颜色变化平滑过渡 */
+}
+
+/*
+  标题悬停效果：
+  - 鼠标悬停时，标题颜色变黄。
+*/
+.card-title:hover { 
+    color: hsl(47, 88%, 63%); /* 悬停时变为黄色 */
+}
+
+/*
+  文章描述文本样式：
+  - 灰色文本，适当的行高。
+*/
+.text { 
+    color: hsl(0, 0%, 50%); /* 灰色 */
+    line-height: 1.5;       /* 行高为字体大小的 1.5 倍 */
+}
+
+/*
+  作者信息容器样式：
+  - 使用 Flexbox 水平对齐头像和姓名，并设置间距。
+*/
+.author-info { 
+    display: flex;
+    align-items: center; /* 子元素垂直居中对齐 */
+    gap: 12px;           /* 子元素之间 12px 的间距 */
+    margin-top: 12px;    /* 顶部外边距，与上方描述隔开 */
+}
+
+/*
+  作者头像样式：
+  - 固定大小和圆形。
+*/
+.author-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%; /* 变为圆形 */
+}
+
+/*
+  作者姓名样式：
+  - 黑色粗体文本。
+*/
+.author-name {
+    font-weight: 800;      /* 特粗字重 */
+    color: hsl(0, 0%, 7%); /* 黑色 */
+}
+
+/*
+  页面底部 Attribution样式：
+  - 绝对定位在页面底部居中。
+*/
+.attribution {
+    position: absolute;
+    bottom: 20px;             /* 距底部 20px */
+    left: 50%;                /* 左边缘定位到 50% */
+    transform: translateX(-50%); /* 自身左移 50% 宽度，实现水平居中 */
+    font-size: 11px;
+    text-align: center;
+    color: hsl(0, 0%, 7%); /* 默认文本颜色 */
+}
+.attribution a {
+    color: hsl(228, 45%, 44%); /* 链接颜色 */
+    text-decoration: none;     /* 移除下划线 */
+}
+.attribution a:hover {
+    text-decoration: underline; /* 链接悬停时显示下划线 */
+}
+
+/* 媒体查询：响应式设计 */
+@media (max-width: 375px) {
+    .blog-card {
+        width: calc(100% - 48px); /* 在小屏幕上适应宽度，留出左右边距 */
+        margin: 24px; /* 防止卡片紧贴屏幕边缘 */
+    }
+
+    .attribution {
+        padding: 0 10px; /* 小屏幕上防止attribution内容溢出 */
+        white-space: normal; /* 允许换行 */
+    }
+}
